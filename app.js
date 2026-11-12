@@ -89,10 +89,18 @@
       const anchor = document.createElement("a");
       anchor.className = "social-link reveal-item";
       anchor.href = item.url;
-      anchor.setAttribute("aria-label", item.label);
-      anchor.setAttribute("title", item.label);
       anchor.style.setProperty("--delay", `${80 + index * 45}ms`);
-      anchor.innerHTML = icon(item.icon);
+
+      const iconWrap = document.createElement("span");
+      iconWrap.className = "social-link__icon";
+      iconWrap.setAttribute("aria-hidden", "true");
+      iconWrap.innerHTML = icon(item.icon);
+
+      const label = document.createElement("span");
+      label.className = "social-link__label";
+      label.textContent = item.label || "Link";
+
+      anchor.append(iconWrap, label);
 
       if (isExternalWebUrl(item.url)) {
         anchor.target = "_blank";

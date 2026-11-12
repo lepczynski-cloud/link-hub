@@ -226,36 +226,62 @@ h1 {
 }
 
 .socials {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 620px);
   gap: 10px;
-  margin-top: 24px;
+  margin-top: 26px;
 }
 
 .social-link {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  place-items: center;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  color: var(--muted-strong);
-  background: rgba(16, 23, 31, 0.74);
+  display: flex;
+  min-width: 0;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  color: var(--text);
+  background: rgba(19, 27, 36, 0.78);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
-  transition: transform 180ms ease, color 180ms ease, border-color 180ms ease, background 180ms ease;
+  font-size: 0.91rem;
+  font-weight: 660;
+  letter-spacing: -0.015em;
+  transition: transform 180ms ease, color 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
-.social-link svg {
+.social-link__icon {
+  display: grid;
+  flex: 0 0 20px;
   width: 20px;
   height: 20px;
+  place-items: center;
+  color: var(--accent);
+}
+
+.social-link__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-link__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .social-link:hover {
   color: var(--accent-strong);
   border-color: var(--border-hover);
   background: var(--surface-strong);
-  transform: translateY(-3px);
+  box-shadow: 0 13px 32px rgba(0, 0, 0, 0.21);
+  transform: translateY(-2px);
+}
+
+.social-link:active {
+  transform: translateY(0);
 }
 
 .social-link:focus-visible,
@@ -495,6 +521,18 @@ body.is-ready .reveal-item {
 
   .profile__bio {
     max-width: 38ch;
+  }
+
+  .socials {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 9px;
+    margin-top: 23px;
+  }
+
+  .social-link {
+    min-height: 52px;
+    padding: 10px 12px;
   }
 
   .sections {
