@@ -1,7 +1,10 @@
 /*
   Edit this file to update the page.
-  Reorder items by moving them in the arrays.
   Set enabled to false to hide an item without deleting it.
+  Adding a new icon:
+    - Find an SVG icon at https://lucide.dev/icons/
+    - Copy its SVG code.
+    - Open app.js and add a new entry to the icons object
 */
 
 window.LINK_HUB_CONFIG = {
@@ -82,7 +85,7 @@ window.LINK_HUB_CONFIG = {
           title: "ASCII Camera Studio",
           description: "Browser studio for turning a live camera, photos and videos into customizable ASCII art.",
           url: "https://asciicamera.lepczynski.it/",
-          icon: "monitor",
+          icon: "cam",
           badge: "OPEN SOURCE",
           enabled: true
         },
